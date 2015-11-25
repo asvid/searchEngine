@@ -1,0 +1,7 @@
+-classpath 'J:\\repo\\SearchEngine\\build\\classes\\main;J:\\repo\\SearchEngine\\build\\resources\\main'
+-d 'J:\\repo\\SearchEngine\\build\\docs\\javadoc'
+-doctitle 'SearchEngine 1.0 API'
+-quiet 
+-windowtitle 'SearchEngine 1.0 API'
+'J:\\repo\\SearchEngine\\src\\main\\java\\Main.java'
+'J:\\repo\\SearchEngine\\src\\main\\java\\StringGenerator.java'
