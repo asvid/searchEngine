@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="porter-stemmer-1.4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/porter-stemmer-1.4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/porter-stemmer-1.4-javadoc.jar!/porter-stemmer-1.4-javadoc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/porter-stemmer-1.4.jar!/" />
+    </SOURCES>
+  </library>
+</component>

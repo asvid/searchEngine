@@ -1,7 +1,10 @@
--classpath 'J:\\repo\\SearchEngine\\build\\classes\\main;J:\\repo\\SearchEngine\\build\\resources\\main'
+-classpath 'J:\\repo\\SearchEngine\\build\\classes\\main;J:\\repo\\SearchEngine\\build\\resources\\main;C:\\Users\\Adam\\.gradle\\caches\\modules-2\\files-2.1\\gov.sandia.foundry\\porter-stemmer\\1.4\\10a5de6a1171586dead3a2125f74f43f9b23db59\\porter-stemmer-1.4.jar'
 -d 'J:\\repo\\SearchEngine\\build\\docs\\javadoc'
 -doctitle 'SearchEngine 1.0 API'
 -quiet 
 -windowtitle 'SearchEngine 1.0 API'
 'J:\\repo\\SearchEngine\\src\\main\\java\\Main.java'
 'J:\\repo\\SearchEngine\\src\\main\\java\\StringGenerator.java'
+'J:\\repo\\SearchEngine\\src\\main\\java\\documents\\Document.java'
+'J:\\repo\\SearchEngine\\src\\main\\java\\search\\SearchEngine.java'
+'J:\\repo\\SearchEngine\\src\\main\\java\\steammer\\SteammerHelper.java'
