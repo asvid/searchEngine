@@ -46,10 +46,10 @@ public class SearchEngine {
 
     public SearchEngine searchPhrase(String s) {
         ArrayList<String> searchedKeywords = new SteammerHelper().runFromString(s);
-        System.out.println(searchedKeywords);
-        System.out.println(FactorCalculator.getQueryFactor(searchedKeywords));
 
-
+        for (Document doc : documents) {
+            System.out.print("doc: " + doc.getRawContent() + "\n" + "wynik: " + FactorCalculator.getSimilarity(searchedKeywords, doc));
+        }
         return this;
     }
 

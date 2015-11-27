@@ -1,9 +1,14 @@
 package documents;
 
+import search.Helper;
 import search.SearchEngine;
 import steammer.SteammerHelper;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created by Adam on 2015-11-25.
@@ -12,7 +17,10 @@ public class Document {
     private String title;
     private String content;
     private String rawContent;
+    private int maxKeyword = 0;
     private ArrayList<String> keywords = new ArrayList<>();
+    private HashMap<String, Integer> keywordsMatrix = new HashMap<>();
+    private HashMap<String, Double> TF = new HashMap<>();
 
     public Document(String title, String content) {
         this.title = title;
@@ -49,11 +57,19 @@ public class Document {
     private void getKeyWords() {
         ArrayList<String> stemmedContent = new SteammerHelper().runFromString(rawContent);
         for (String word : stemmedContent) {
-            for (String keyword : SearchEngine.getInstance().getKeywords()) {
-                if (keyword.equals(word)) {
-                    keywords.add(keyword);
-                }
-            }
+            keywords.addAll(SearchEngine.getInstance().getKeywords().stream().filter(keyword -> keyword.equals(word)).collect(Collectors.toList()));
+        }
+        keywordsMatrix = Helper.prepareKeywordsMatrix(keywords);
+        maxKeyword = keywordsMatrix.entrySet().stream().max((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1).get().getValue();
+        Helper.countDuplicates(keywords).forEach((k, v) -> TF.put(k, v.doubleValue() / maxKeyword));
+        checkTFvalues();
+    }
+
+    private void checkTFvalues() {
+        Iterator it = TF.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry) it.next();
+            System.out.println("Value: " + pair.getValue());
         }
     }
 
@@ -75,6 +91,30 @@ public class Document {
 
     public void checkKeywords(ArrayList<String> keywords) {
         this.keywords = keywords;
+    }
+
+    public int getMaxKeyword() {
+        return maxKeyword;
+    }
+
+    public void setMaxKeyword(int maxKeyword) {
+        this.maxKeyword = maxKeyword;
+    }
+
+    public HashMap<String, Integer> getKeywordsMatrix() {
+        return keywordsMatrix;
+    }
+
+    public void setKeywordsMatrix(HashMap<String, Integer> keywordsMatrix) {
+        this.keywordsMatrix = keywordsMatrix;
+    }
+
+    public HashMap<String, Double> getTF() {
+        return TF;
+    }
+
+    public void setTF(HashMap<String, Double> TF) {
+        this.TF = TF;
     }
 
     @Override

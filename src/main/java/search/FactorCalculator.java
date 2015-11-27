@@ -13,21 +13,25 @@ import java.util.Map;
 public class FactorCalculator {
 
     public static Double getQueryFactor(ArrayList<String> queryKeywords) {
-        //log z = liczba dokumentów ogólnie : liczba dokumentów z konkretnym keyword
-        for (String keyword : queryKeywords) {
-            Double mathLog = Math.log(SearchEngine.getInstance().getDocuments().size() / SearchEngine.getInstance().getDocumentsWith(keyword));
-        }
-
-
-        HashMap<String, Integer> countedQuery = Helper.prepareKeywordsMatrix(queryKeywords);
         Double underRoot = 0.0;
-        Iterator it = countedQuery.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry) it.next();
-            underRoot += Math.pow((Integer) pair.getValue(), 2);
-            it.remove();
+        for (String keyword : queryKeywords) {
+            int docWithKeyword = SearchEngine.getInstance().getDocumentsWith(keyword);
+            if (docWithKeyword > 0) {
+                underRoot += Math.pow(Math.log(SearchEngine.getInstance().getDocuments().size() / SearchEngine.getInstance().getDocumentsWith(keyword)), 2);
+            }
         }
         return Math.sqrt(underRoot);
+    }
+
+    public static HashMap<String, Double> getQueryFactorMatrix(ArrayList<String> queryKeywords) {
+        HashMap<String, Double> returnMatrix = new HashMap<>();
+        for (String keyword : queryKeywords) {
+            int docWithKeyword = SearchEngine.getInstance().getDocumentsWith(keyword);
+            if (docWithKeyword > 0) {
+                returnMatrix.put(keyword, Math.log(SearchEngine.getInstance().getDocuments().size() / SearchEngine.getInstance().getDocumentsWith(keyword)));
+            }
+        }
+        return returnMatrix;
     }
 
     public static Double getDocumentFactor(Document document) {
@@ -40,5 +44,22 @@ public class FactorCalculator {
             it.remove();
         }
         return Math.sqrt(underRoot);
+    }
+
+    public static Double getSimilarity(ArrayList<String> querryList, Document document) {
+        HashMap<String, Double> queryMatrix = getQueryFactorMatrix(querryList);
+        HashMap<String, Double> documentMatrix = document.getTF();
+        Double licznik = 0.0;
+        Iterator it = queryMatrix.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry) it.next();
+            if (documentMatrix.get(pair.getKey()) != null && documentMatrix.get(pair.getKey()).toString().equals("-Infinity") && documentMatrix.get(pair.getKey()).toString().equals("Infinity")) {
+                //  I wanna learn about machine learning
+                licznik += (Double) pair.getValue() * documentMatrix.get(pair.getKey());
+                System.out.println("dupa dupa not work: " + licznik);
+                it.remove();
+            }
+        }
+        return licznik / (getQueryFactor(querryList) * getDocumentFactor(document));
     }
 }
