@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_searchengine" default="compile.module.searchengine">
+  <dirname property="module.searchengine.basedir" file="${ant.file.module_searchengine}"/>
+  
+  <property name="module.jdk.home.searchengine" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.searchengine" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.searchengine" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.searchengine" value="-encoding UTF-8 -source 8 ${compiler.args}"/>
+  
+  <property name="searchengine.output.dir" value="${module.searchengine.basedir}/build/classes/main"/>
+  <property name="searchengine.testoutput.dir" value="${module.searchengine.basedir}/build/classes/test"/>
+  
+  <path id="searchengine.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="searchengine.module.production.classpath">
+    <path refid="${module.jdk.classpath.searchengine}"/>
+    <path refid="library.porter-stemmer-1.4.classpath"/>
+  </path>
+  
+  <path id="searchengine.runtime.production.module.classpath">
+    <pathelement location="${searchengine.output.dir}"/>
+    <path refid="library.porter-stemmer-1.4.classpath"/>
+  </path>
+  
+  <path id="searchengine.module.classpath">
+    <path refid="${module.jdk.classpath.searchengine}"/>
+    <pathelement location="${searchengine.output.dir}"/>
+    <path refid="library.gradle:_junit:junit:4.11.classpath"/>
+    <path refid="library.gradle:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.porter-stemmer-1.4.classpath"/>
+  </path>
+  
+  <path id="searchengine.runtime.module.classpath">
+    <pathelement location="${searchengine.testoutput.dir}"/>
+    <pathelement location="${searchengine.output.dir}"/>
+    <path refid="library.gradle:_junit:junit:4.11.classpath"/>
+    <path refid="library.gradle:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.porter-stemmer-1.4.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.searchengine">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.searchengine">
+    <patternset refid="excluded.from.module.searchengine"/>
+  </patternset>
+  
+  <path id="searchengine.module.sourcepath">
+    <dirset dir="${module.searchengine.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="searchengine.module.test.sourcepath">
+    <dirset dir="${module.searchengine.basedir}">
+      <include name="src/test/java"/>
+      <include name="src/test/resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.searchengine" depends="compile.module.searchengine.production,compile.module.searchengine.tests" description="Compile module SearchEngine"/>
+  
+  <target name="compile.module.searchengine.production" depends="register.custom.compilers" description="Compile module SearchEngine; production classes">
+    <mkdir dir="${searchengine.output.dir}"/>
+    <javac2 destdir="${searchengine.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.searchengine}/javac">
+      <compilerarg line="${compiler.args.searchengine}"/>
+      <bootclasspath refid="searchengine.module.bootclasspath"/>
+      <classpath refid="searchengine.module.production.classpath"/>
+      <src refid="searchengine.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.searchengine"/>
+    </javac2>
+    
+    <copy todir="${searchengine.output.dir}">
+      <fileset dir="${module.searchengine.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.searchengine.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.searchengine.tests" depends="register.custom.compilers,compile.module.searchengine.production" description="compile module SearchEngine; test classes" unless="skip.tests">
+    <mkdir dir="${searchengine.testoutput.dir}"/>
+    <javac2 destdir="${searchengine.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.searchengine}/javac">
+      <compilerarg line="${compiler.args.searchengine}"/>
+      <bootclasspath refid="searchengine.module.bootclasspath"/>
+      <classpath refid="searchengine.module.classpath"/>
+      <src refid="searchengine.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.searchengine"/>
+    </javac2>
+    
+    <copy todir="${searchengine.testoutput.dir}">
+      <fileset dir="${module.searchengine.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.searchengine.basedir}/src/test/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.searchengine" description="cleanup module">
+    <delete dir="${searchengine.output.dir}"/>
+    <delete dir="${searchengine.testoutput.dir}"/>
+  </target>
+</project>

@@ -58,10 +58,11 @@ public class SearchEngine {
             }
         }
         LinkedHashMap<Document, Double> sorted = new LinkedHashMap<>();
-        sorted.putAll(
-                foundDocuments.entrySet().stream().sorted(Map.Entry.<Document, Double>comparingByValue().reversed())
-                        .limit(10).collect(
-                        Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new)));
+        sorted = foundDocuments.entrySet().stream().sorted(Map.Entry.<Document, Double>comparingByValue().reversed())
+                .limit(10)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+
+
         sorted.forEach((k, v) -> System.out.println(k.print() + " wynik: " + v));
 
 
