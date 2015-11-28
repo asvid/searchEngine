@@ -17,8 +17,10 @@ public class FactorCalculator {
         for (String keyword : queryKeywords) {
             int docWithKeyword = SearchEngine.getInstance().getDocumentsWith(keyword);
             if (docWithKeyword > 0) {
-                underRoot += Math.pow(Math.log(SearchEngine.getInstance().getDocuments().size() / SearchEngine.getInstance().getDocumentsWith(keyword)), 2);
+                underRoot += Math.pow(Math.log(SearchEngine.getInstance().getDocuments().size() /
+                        SearchEngine.getInstance().getDocumentsWith(keyword)), 2);
             }
+
         }
         return Math.sqrt(underRoot);
     }
@@ -28,7 +30,8 @@ public class FactorCalculator {
         for (String keyword : queryKeywords) {
             int docWithKeyword = SearchEngine.getInstance().getDocumentsWith(keyword);
             if (docWithKeyword > 0) {
-                returnMatrix.put(keyword, Math.log(SearchEngine.getInstance().getDocuments().size() / SearchEngine.getInstance().getDocumentsWith(keyword)));
+                returnMatrix.put(keyword, Math.log(SearchEngine.getInstance().getDocuments().size() /
+                        SearchEngine.getInstance().getDocumentsWith(keyword)));
             }
         }
         return returnMatrix;
@@ -53,13 +56,21 @@ public class FactorCalculator {
         Iterator it = queryMatrix.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry) it.next();
-            if (documentMatrix.get(pair.getKey()) != null && documentMatrix.get(pair.getKey()).toString().equals("-Infinity") && documentMatrix.get(pair.getKey()).toString().equals("Infinity")) {
+            //System.out.println("docMatrix: " + documentMatrix.get(pair.getKey()) + " / mianownik: " + mianownik);
+            if (documentMatrix.get(pair.getKey()) != null &&
+                    !documentMatrix.get(pair.getKey()).toString().equals("-Infinity") &&
+                    !documentMatrix.get(pair.getKey()).toString().equals("Infinity")) {
                 //  I wanna learn about machine learning
                 licznik += (Double) pair.getValue() * documentMatrix.get(pair.getKey());
-                System.out.println("dupa dupa not work: " + licznik);
                 it.remove();
             }
         }
-        return licznik / (getQueryFactor(querryList) * getDocumentFactor(document));
+        double mianownik = getQueryFactor(querryList) * getDocumentFactor(document);
+        if (mianownik > 0) {
+            return licznik / mianownik;
+        } else {
+            //System.out.println("Noting found..." + querryList + " / " + document.getKeywords());
+            return 0.0;
+        }
     }
 }

@@ -10,12 +10,12 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) {
         BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Enter something here : ");
+        System.out.println("Let me find stuff for you: ");
         while (true) {
             try {
-                String s = null;
+                String s;
                 s = bufferRead.readLine();
-                SearchEngine.getInstance().searchPhrase(s).print();
+                SearchEngine.getInstance().searchPhrase(s);
             } catch (IOException e) {
                 e.printStackTrace();
             }

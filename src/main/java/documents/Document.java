@@ -2,7 +2,7 @@ package documents;
 
 import search.Helper;
 import search.SearchEngine;
-import steammer.SteammerHelper;
+import stemmer.StemmerHelper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -55,12 +55,14 @@ public class Document {
     }
 
     private void getKeyWords() {
-        ArrayList<String> stemmedContent = new SteammerHelper().runFromString(rawContent);
+        ArrayList<String> stemmedContent = new StemmerHelper().runFromString(rawContent);
         for (String word : stemmedContent) {
-            keywords.addAll(SearchEngine.getInstance().getKeywords().stream().filter(keyword -> keyword.equals(word)).collect(Collectors.toList()));
+            keywords.addAll(SearchEngine.getInstance().getKeywords().stream().filter(keyword -> keyword.equals(word))
+                    .collect(Collectors.toList()));
         }
         keywordsMatrix = Helper.prepareKeywordsMatrix(keywords);
-        maxKeyword = keywordsMatrix.entrySet().stream().max((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1).get().getValue();
+        maxKeyword = keywordsMatrix.entrySet().stream()
+                .max((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1).get().getValue();
         Helper.countDuplicates(keywords).forEach((k, v) -> TF.put(k, v.doubleValue() / maxKeyword));
         checkTFvalues();
     }
@@ -69,7 +71,6 @@ public class Document {
         Iterator it = TF.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry) it.next();
-            System.out.println("Value: " + pair.getValue());
         }
     }
 
@@ -120,5 +121,9 @@ public class Document {
     @Override
     public String toString() {
         return title + " " + content;
+    }
+
+    public String print() {
+        return ("Title: " + title + " ");
     }
 }

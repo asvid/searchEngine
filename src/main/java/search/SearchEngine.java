@@ -2,9 +2,13 @@ package search;
 
 import documents.Document;
 import helpers.FileHelper;
-import steammer.SteammerHelper;
+import stemmer.StemmerHelper;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created by Adam on 2015-11-25.
@@ -29,7 +33,7 @@ public class SearchEngine {
 
     private void generateKeywords() {
         if (keywords.size() == 0) {
-            keywords = new SteammerHelper().runFromFile("keywords.txt");
+            keywords = new StemmerHelper().runFromFile("keywords.txt");
             for (String keyword : keywords) {
                 //System.out.print(keyword + "\n");
             }
@@ -44,12 +48,23 @@ public class SearchEngine {
         return instance;
     }
 
-    public SearchEngine searchPhrase(String s) {
-        ArrayList<String> searchedKeywords = new SteammerHelper().runFromString(s);
-
+    public SearchEngine searchPhrase(String phrase) {
+        ArrayList<String> searchedKeywords = new StemmerHelper().runFromString(phrase);
+        HashMap<Document, Double> foundDocuments = new HashMap<>();
         for (Document doc : documents) {
-            System.out.print("doc: " + doc.getRawContent() + "\n" + "wynik: " + FactorCalculator.getSimilarity(searchedKeywords, doc));
+            Double value = FactorCalculator.getSimilarity(searchedKeywords, doc);
+            if (value > 0) {
+                foundDocuments.put(doc, value);
+            }
         }
+        LinkedHashMap<Document, Double> sorted = new LinkedHashMap<>();
+        sorted.putAll(
+                foundDocuments.entrySet().stream().sorted(Map.Entry.<Document, Double>comparingByValue().reversed())
+                        .limit(10).collect(
+                        Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new)));
+        sorted.forEach((k, v) -> System.out.println(k.print() + " wynik: " + v));
+
+
         return this;
     }
 
@@ -69,17 +84,11 @@ public class SearchEngine {
         this.documents = documents;
     }
 
-    public void print() {
-        System.out.println("jakiś tekst");
-    }
-
     public int getDocumentsWith(String keyword) {
         int counter = 0;
         for (Document doc : documents) {
-            for (String docKeyword : doc.getKeywords()) {
-                if (docKeyword.equals(keyword)) {
-                    counter++;
-                }
+            if (doc.getKeywords().contains(keyword)) {
+                counter++;
             }
         }
         return counter;

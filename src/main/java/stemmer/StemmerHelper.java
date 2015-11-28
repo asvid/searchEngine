@@ -1,4 +1,4 @@
-package steammer;
+package stemmer;
 
 import org.tartarus.martin.Stemmer;
 
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-public class SteammerHelper {
+public class StemmerHelper {
 
     Stemmer s = new Stemmer();
     ArrayList<String> toReturn = new ArrayList<>();
