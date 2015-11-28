@@ -49,6 +49,7 @@ public class SearchEngine {
     }
 
     public SearchEngine searchPhrase(String phrase) {
+        System.out.println("serching...");
         ArrayList<String> searchedKeywords = new StemmerHelper().runFromString(phrase);
         HashMap<Document, Double> foundDocuments = new HashMap<>();
         for (Document doc : documents) {
@@ -65,6 +66,7 @@ public class SearchEngine {
 
         sorted.forEach((k, v) -> System.out.println(k.print() + " wynik: " + v));
 
+        System.out.println("-------------------------\nLet me find stuff for you:");
 
         return this;
     }
