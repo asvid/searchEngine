@@ -63,7 +63,9 @@ public class SearchEngine {
                 .limit(10)
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
-
+        if (foundDocuments.size() == 0) {
+            System.out.println("sorry, nothing about '" + phrase + "'");
+        }
         sorted.forEach((k, v) -> System.out.println(k.print() + " wynik: " + v));
 
         System.out.println("-------------------------\nLet me find stuff for you:");
