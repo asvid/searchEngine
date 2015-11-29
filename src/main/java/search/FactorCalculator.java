@@ -17,7 +17,7 @@ public class FactorCalculator {
         for (String keyword : queryKeywords) {
             int docWithKeyword = SearchEngine.getInstance().getDocumentsWith(keyword);
             if (docWithKeyword > 0) {
-                underRoot += Math.pow(Math.log(SearchEngine.getInstance().getDocuments().size() /
+                underRoot += Math.pow(Math.log((double) SearchEngine.getInstance().getDocuments().size() /
                         SearchEngine.getInstance().getDocumentsWith(keyword)), 2);
             }
 
@@ -30,7 +30,7 @@ public class FactorCalculator {
         for (String keyword : queryKeywords) {
             int docWithKeyword = SearchEngine.getInstance().getDocumentsWith(keyword);
             if (docWithKeyword > 0) {
-                returnMatrix.put(keyword, Math.log(SearchEngine.getInstance().getDocuments().size() /
+                returnMatrix.put(keyword, Math.log((double) SearchEngine.getInstance().getDocuments().size() /
                         SearchEngine.getInstance().getDocumentsWith(keyword)));
             }
         }
