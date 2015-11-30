@@ -6,72 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="520ccc16-853b-4a24-b22c-d6940a51a974" name="Default" comment="fixed bug">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pojo/WordData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_mashape_unirest_unirest_java_1_4_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_apache_httpcomponents_httpclient_osgi_4_3_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_spockframework_spock_core_1_0_groovy_2_4.xml" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\Main.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\StringGenerator.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\allclasses-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\allclasses-noframe.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\constant-values.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\deprecated-list.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\documents\Document.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\documents\package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\documents\package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\documents\package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\help-doc.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\helpers\FileHelper.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\helpers\package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\helpers\package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\helpers\package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\index-all.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\index.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\overview-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\overview-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\overview-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\package-list" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\script.js" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\search\FactorCalculator.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\search\Helper.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\search\SearchEngine.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\search\package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\search\package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\search\package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\steammer\SteammerHelper.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\steammer\package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\steammer\package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\steammer\package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\stemmer\StemmerHelper.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\stemmer\package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\stemmer\package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\stemmer\package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\docs\javadoc\stylesheet.css" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\reports\tests\classes\StringGeneratorTest.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\reports\tests\css\base-style.css" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\reports\tests\css\style.css" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\reports\tests\index.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\reports\tests\js\report.js" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\reports\tests\packages\default-package.html" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\test-results\TEST-StringGeneratorTest.xml" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\test-results\binary\test\output.bin" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\test-results\binary\test\output.bin.idx" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\test-results\binary\test\results.bin" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\build\tmp\javadoc\javadoc.options" afterPath="" />
-      <change type="DELETED" beforePath="J:\repo\SearchEngine\src\test\java\StringGeneratorTest.java" afterPath="" />
+    <list default="true" id="520ccc16-853b-4a24-b22c-d6940a51a974" name="Default" comment="added libraries and working query hints">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.1/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SearchEngine.iml" afterPath="$PROJECT_DIR$/SearchEngine.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SearchEngine.iws" />
@@ -115,7 +55,7 @@
       <file leaf-file-name="WordData.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pojo/WordData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5043732" vertical-offset="1694" max-vertical-offset="2380">
+            <state vertical-scroll-proportion="0.9376054" vertical-offset="1484" max-vertical-offset="2380">
               <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
               <folding>
                 <element signature="e#400#401#0" expanded="true" />
@@ -180,7 +120,17 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Adam" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="tasksExpandState">
@@ -1553,7 +1503,7 @@
       <workItem from="1448829357184" duration="795000" />
       <workItem from="1448906795251" duration="2600000" />
       <workItem from="1448910867148" duration="16000" />
-      <workItem from="1448914836469" duration="3171000" />
+      <workItem from="1448914836469" duration="3297000" />
     </task>
     <task id="LOCAL-00001" summary="fixed bug">
       <created>1448826006431</created>
@@ -1561,15 +1511,21 @@
       <option name="project" value="LOCAL" />
       <updated>1448826006431</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added libraries and working query hints">
+      <created>1448919124563</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1448919124564</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61813000" />
+    <option name="totallyTimeSpent" value="61939000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1587,10 +1543,10 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32575756" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32792208" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22727273" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22727273" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24307036" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1647,11 +1603,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
     <MESSAGE value="fixed bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bug" />
+    <MESSAGE value="added libraries and working query hints" />
+    <option name="LAST_COMMIT_MESSAGE" value="added libraries and working query hints" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -2117,7 +2075,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pojo/WordData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5043732" vertical-offset="1694" max-vertical-offset="2380">
+        <state vertical-scroll-proportion="0.9376054" vertical-offset="1484" max-vertical-offset="2380">
           <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
           <folding>
             <element signature="e#400#401#0" expanded="true" />
