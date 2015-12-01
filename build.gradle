@@ -1,3 +1,5 @@
+defaultTasks 'clean', 'test', 'build'
+
 apply plugin: 'groovy'
 
 sourceCompatibility = 1.8
