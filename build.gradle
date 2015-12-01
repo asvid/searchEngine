@@ -1,4 +1,4 @@
-defaultTasks 'clean', 'test', 'build'
+defaultTasks 'clean', 'javadoc', 'build'
 
 apply plugin: 'groovy'
 
