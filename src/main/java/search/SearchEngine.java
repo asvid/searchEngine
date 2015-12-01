@@ -48,7 +48,7 @@ public class SearchEngine {
         return instance;
     }
 
-    public SearchEngine searchPhrase(String phrase) {
+    public LinkedHashMap<Document, Double> searchPhrase(String phrase) {
         System.out.println("serching...");
         ArrayList<String> searchedKeywords = new StemmerHelper().runFromString(phrase);
         HashMap<Document, Double> foundDocuments = new HashMap<>();
@@ -70,7 +70,7 @@ public class SearchEngine {
 
         System.out.println("-------------------------\nLet me find stuff for you:");
 
-        return this;
+        return sorted;
     }
 
     public ArrayList<String> getKeywords() {
