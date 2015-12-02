@@ -13,6 +13,24 @@ public class WordData {
     private boolean visibilitry;
     private Object overwrittenSenseId;
     private int partOfSpeechId;
+    private String word;
+    private Integer wordId;
+
+    public String getWord() {
+        return word;
+    }
+
+    public void setWord(String word) {
+        this.word = word;
+    }
+
+    public Integer getWordId() {
+        return wordId;
+    }
+
+    public void setWordId(Integer wordId) {
+        this.wordId = wordId;
+    }
 
     /**
      * @return The senseId

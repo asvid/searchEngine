@@ -5,7 +5,6 @@ import com.google.gson.reflect.TypeToken;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
 import pojo.WordData;
 
 import java.util.ArrayList;
@@ -20,10 +19,10 @@ public class Wordnet {
         try {
             Gson gson = new Gson();
             HttpResponse<JsonNode> jsonResponse =
-                    Unirest.get("http://wordventure.eti.pg.gda.pl/FindSenses?q=%25" + text).asJson();
+                    Unirest.get("http://wordventure.eti.pg.gda.pl/FindWords?q=%25" + text).asJson();
             list = gson.fromJson(jsonResponse.getBody().toString(), new TypeToken<List<WordData>>() {}.getType());
-        } catch (UnirestException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            //e.printStackTrace();
         }
         return list;
     }
