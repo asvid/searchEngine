@@ -31,7 +31,6 @@ public class Controller implements Initializable {
     @FXML
     private CheckBox showSuggestions;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         search.setOnAction(new EventHandler<ActionEvent>() {
