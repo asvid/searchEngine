@@ -8,10 +8,14 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import pojo.WordData;
+import search.Helper;
 import search.SearchEngine;
 import search.Wordnet;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -23,6 +27,10 @@ public class Controller implements Initializable {
     @FXML
     private Button search;
     @FXML
+    private Button selectDocument;
+    @FXML
+    private Button selectKEywords;
+    @FXML
     private TextArea result;
     @FXML
     private TextField query;
@@ -31,8 +39,28 @@ public class Controller implements Initializable {
     @FXML
     private CheckBox showSuggestions;
 
+    final FileChooser fileChooser = new FileChooser();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        selectDocument.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                File file = fileChooser.showOpenDialog(new Stage());
+                Helper.print(file.getAbsolutePath());
+                SearchEngine.getInstance().analyseDocuments(file.getPath());
+            }
+        });
+        selectKEywords.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                File file = fileChooser.showOpenDialog(new Stage());
+                Helper.print(file.getAbsolutePath());
+                SearchEngine.getInstance().generateKeywords(file.getPath());
+            }
+        });
+
         search.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

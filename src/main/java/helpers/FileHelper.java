@@ -11,7 +11,14 @@ public class FileHelper {
 
     public String readFile(String fileLocation) {
         ClassLoader classLoader = getClass().getClassLoader();
-        String file = classLoader.getResource(fileLocation).getFile();
+        String file;
+        try {
+            file = classLoader.getResource(fileLocation).getFile();
+        } catch (Exception e) {
+
+            file = fileLocation;
+        }
+
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader(file));

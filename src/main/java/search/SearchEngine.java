@@ -19,21 +19,23 @@ public class SearchEngine {
     private ArrayList<Document> documents = new ArrayList<>();
 
     private void init() {
-        generateKeywords();
-        analyseDocuments();
+        generateKeywords(null);
+        analyseDocuments(null);
     }
 
-    private void analyseDocuments() {
-        String rawDocument = new FileHelper().readFile("documents.txt");
+    public void analyseDocuments(String path) {
+        if (path == null) path = "documents.txt";
+        String rawDocument = new FileHelper().readFile(path);
         String[] rawArray = rawDocument.split("[\\n\\r|\\n|\\r]{2}");
         for (int i = 0; i < rawArray.length; i++) {
             documents.add(new Document(rawArray[i]));
         }
     }
 
-    private void generateKeywords() {
+    public void generateKeywords(String path) {
         if (keywords.size() == 0) {
-            keywords = new StemmerHelper().runFromFile("keywords.txt");
+            if (path == null) path = "keywords.txt";
+            keywords = new StemmerHelper().runFromFile(path);
             for (String keyword : keywords) {
                 //System.out.print(keyword + "\n");
             }
