@@ -21,6 +21,7 @@ public class Document {
     private ArrayList<String> keywords = new ArrayList<>();
     private HashMap<String, Integer> keywordsMatrix = new HashMap<>();
     private HashMap<String, Double> TF = new HashMap<>();
+    private HashMap<String, Double> TFIDF = new HashMap<>();
 
     public Document(String title, String content) {
         this.title = title;
@@ -61,8 +62,10 @@ public class Document {
                     .collect(Collectors.toList()));
         }
         keywordsMatrix = Helper.prepareKeywordsMatrix(keywords);
+        Helper.print("keyword: " + keywordsMatrix);
         maxKeyword = keywordsMatrix.entrySet().stream()
                 .max((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1).get().getValue();
+        Helper.print("max val: " + maxKeyword);
         Helper.countDuplicates(keywords).forEach((k, v) -> TF.put(k, v.doubleValue() / maxKeyword));
         checkTFvalues();
     }
@@ -71,6 +74,7 @@ public class Document {
         Iterator it = TF.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry) it.next();
+            Helper.print("TF,  "+ this.title + " / " + pair);
         }
     }
 
@@ -125,5 +129,13 @@ public class Document {
 
     public String print() {
         return ("Title: " + title + " ");
+    }
+
+    public HashMap<String, Double> getTFIDF() {
+        return TFIDF;
+    }
+
+    public void setTFIDF(HashMap<String, Double> TFIDF) {
+        this.TFIDF = TFIDF;
     }
 }

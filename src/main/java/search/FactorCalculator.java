@@ -17,7 +17,7 @@ public class FactorCalculator {
         for (String keyword : queryKeywords) {
             int docWithKeyword = SearchEngine.getInstance().getDocumentsWith(keyword);
             if (docWithKeyword > 0) {
-                underRoot += Math.pow(Math.log((double) SearchEngine.getInstance().getDocuments().size() /
+                underRoot += Math.pow(Math.log10((double) SearchEngine.getInstance().getDocuments().size() /
                         SearchEngine.getInstance().getDocumentsWith(keyword)), 2);
             }
 
@@ -30,8 +30,9 @@ public class FactorCalculator {
         for (String keyword : queryKeywords) {
             int docWithKeyword = SearchEngine.getInstance().getDocumentsWith(keyword);
             if (docWithKeyword > 0) {
-                returnMatrix.put(keyword, Math.log((double) SearchEngine.getInstance().getDocuments().size() /
-                        SearchEngine.getInstance().getDocumentsWith(keyword)));
+                Helper.print(" query matrix : ->>> " + SearchEngine.getInstance().getDocuments().size() + " / " + SearchEngine.getInstance().getDocumentsWith(keyword));
+                returnMatrix.put(keyword, Math.log10((double) SearchEngine.getInstance().getDocuments().size() /
+                        (double) SearchEngine.getInstance().getDocumentsWith(keyword)));
             }
         }
         return returnMatrix;
@@ -43,7 +44,11 @@ public class FactorCalculator {
         Iterator it = countedQuery.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry) it.next();
-            underRoot += Math.pow((Integer) pair.getValue(), 2);
+            int docWithKeyword = SearchEngine.getInstance().getDocumentsWith((String)pair.getKey());
+            if (docWithKeyword > 0 && document.getTF().get(pair.getKey()) != null) {
+                underRoot += Math.pow(document.getTF().get(pair.getKey())*Math.log10((double) SearchEngine.getInstance().getDocuments().size() /
+                        (double) SearchEngine.getInstance().getDocumentsWith((String)pair.getKey())),2);
+            }
             it.remove();
         }
         return Math.sqrt(underRoot);
@@ -60,13 +65,14 @@ public class FactorCalculator {
             if (documentMatrix.get(pair.getKey()) != null &&
                     !documentMatrix.get(pair.getKey()).toString().equals("-Infinity") &&
                     !documentMatrix.get(pair.getKey()).toString().equals("Infinity")) {
-                //  I wanna learn about machine learning
-                licznik += (Double) pair.getValue() * documentMatrix.get(pair.getKey());
+                licznik += (Double) pair.getValue() * documentMatrix.get(pair.getKey()) * queryMatrix.get(pair.getKey());
                 it.remove();
             }
         }
         double mianownik = getQueryFactor(querryList) * getDocumentFactor(document);
+
         if (mianownik > 0) {
+            Helper.print(licznik + " / " + mianownik);
             return licznik / mianownik;
         } else {
             //System.out.println("Noting found..." + querryList + " / " + document.getKeywords());

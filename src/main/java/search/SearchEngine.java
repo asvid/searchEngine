@@ -24,7 +24,8 @@ public class SearchEngine {
     }
 
     public void analyseDocuments(String path) {
-        if (path == null) path = "documents.txt";
+        if (path == null) path = "documents-lab1.txt";
+        SearchEngine.getInstance().setDocuments(new ArrayList<>());
         String rawDocument = new FileHelper().readFile(path);
         String[] rawArray = rawDocument.split("[\\n\\r|\\n|\\r]{2}");
         for (int i = 0; i < rawArray.length; i++) {
@@ -34,7 +35,8 @@ public class SearchEngine {
 
     public void generateKeywords(String path) {
         if (keywords.size() == 0) {
-            if (path == null) path = "keywords.txt";
+            if (path == null) path = "keywords-lab1.txt";
+            SearchEngine.getInstance().setKeywords(new ArrayList<>());
             keywords = new StemmerHelper().runFromFile(path);
             for (String keyword : keywords) {
                 //System.out.print(keyword + "\n");
